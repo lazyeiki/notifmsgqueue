@@ -31,7 +31,7 @@ import (
     "fmt"
     "time"
 
-    "t github.com/lazyeiki/notifmsgqueue"
+    "github.com/lazyeiki/notifmsgqueue/notifmsgqueue"
 )
 
 func main() {
@@ -72,7 +72,7 @@ import (
     "fmt"
     "time"
 
-    "t github.com/lazyeiki/notifmsgqueue"
+    "github.com/lazyeiki/notifmsgqueue/notifmsgqueue"
 )
 
 func main() {
