@@ -31,33 +31,33 @@ import (
     "fmt"
     "time"
 
-    "github.com/lazyeiki/notifmsgqueue/notifmsgqueue"
+    "github.com/lazyeiki/notifmsgqueue"
 )
 
 func main() {
     // Create a message queue in SingleGoroutine mode.
-    singleQueue := notifmsgqueue.New(10, notifmsgqueue.SingleGoroutine, 0)
+    singleQueue := notifmsgqueue.New(10, notifmsgqueue.Single, 0)
 
     // Define a function to handle messages.
     singleHandler := func(msg any) {
-        fmt.Printf("Processed message (SingleGoroutine): %v\n", msg)
+        fmt.Printf("Processed message (Single): %v\n", msg)
     }
 
-    // Run the message queue in SingleGoroutine mode.
+    // Run the message queue in Single mode.
     singleQueue.Run(singleHandler)
 
     // Add messages to the queue.
     for i := 0; i < 5; i++ {
         err := singleQueue.Push(fmt.Sprintf("Message %d", i))
         if err != nil {
-            fmt.Printf("Failed to add message (SingleGoroutine): %v\n", err)
+            fmt.Printf("Failed to add message (Single): %v\n", err)
         }
     }
 
     // Give some time for the queue to process the messages.
     time.Sleep(2 * time.Second)
 
-    // Stop the message queue in SingleGoroutine mode.
+    // Stop the message queue in Single mode.
     singleQueue.Stop()
 }
 ```
@@ -72,7 +72,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/lazyeiki/notifmsgqueue/notifmsgqueue"
+    "github.com/lazyeiki/notifmsgqueue"
 )
 
 func main() {
